@@ -214,6 +214,12 @@ hi def link org_timestamp_inactive Comment
 syn match org_list_ordered "^\s\+\d\+[.)]\s"
 hi def link org_list_ordered Identifier
 
+syn match org_checkbox "\[ \]"
+hi def link org_checkbox Special
+
+syn match org_checkbox_done "\[X\].*"
+hi def link org_checkbox_done Ignore
+
 " Unordered:
 " - list item
 " * list item

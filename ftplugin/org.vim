@@ -138,5 +138,20 @@ fun CalendarAction(day, month, year, week, dir)
 	" restore calendar_action
 	let g:calendar_action = g:org_calendar_action_backup
 endf
+
+
+function! OvToggleTask()
+  echo ""
+  let row = line(".")
+  let line = getline(row)
+  if line =~ "\\[ \\]"
+    call setline(row, substitute(line, "\\[ \\]", "[X]", ""))
+  elseif line =~ "\\[X\\]"
+    call setline(row, substitute(line, "\\[X\\]", "[ ]", ""))
+  endif
+endfunction
+
+nmap <buffer> qx :call OvToggleTask()<CR>
+
 " }}}
 " }}}
